@@ -1,5 +1,5 @@
 ---
-title: "Week 02 LeafProject RM"
+title: "Week 02 LeafProject"
 author: "Fidel Gruber"
 date: "11/9/2021"
 output: html_document
