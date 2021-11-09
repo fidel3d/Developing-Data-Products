@@ -5,6 +5,8 @@ date: "11/9/2021"
 output: html_document
 ---
 
+*FYI: Github won't open the html file, therefore please download the file and open it on your web browser.*
+
 Creation of a web page using R Markdown that features a map created with Leaflet. 
 
 Host your webpage on either GitHub Pages, RPubs, or NeoCities.
