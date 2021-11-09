@@ -1,0 +1,43 @@
+---
+title: "Week 02 LeafProject"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+Date:11-9-2021  
+
+### County Cork  
+
+From Wikipedia, the free encyclopedia
+
+County Cork ([Irish](https://en.wikipedia.org/wiki/Irish_language): Contae Chorcaí) is the largest and the southernmost [county](https://en.wikipedia.org/wiki/Counties_of_Ireland) of [Ireland](https://en.wikipedia.org/wiki/Republic_of_Ireland), situated in the [province](https://en.wikipedia.org/wiki/Provinces_of_Ireland) of [Munster](https://en.wikipedia.org/wiki/Munster) and named after the city of [Cork](https://en.wikipedia.org/wiki/Cork_(city)), Ireland's second-largest city. Its largest market towns are [Mallow](https://en.wikipedia.org/wiki/Mallow,_County_Cork), [Macroom](https://en.wikipedia.org/wiki/Macroom), [Midleton](https://en.wikipedia.org/wiki/Midleton), and [Skibbereen](https://en.wikipedia.org/wiki/Skibbereen). As of 2016 the county had a population of 542,868, making it the [third-most populous](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_population) county in Ireland.[4](https://en.wikipedia.org/wiki/County_Cork#cite_note-cso2016City-4)[5](https://en.wikipedia.org/wiki/County_Cork#cite_note-cso2016County-5) The [Cork County Council](https://en.wikipedia.org/wiki/Cork_County_Council) is the [local authority](https://en.wikipedia.org/wiki/Local_government_in_the_Republic_of_Ireland) for the county. Notable Corkonians include [Michael Collins](https://en.wikipedia.org/wiki/Michael_Collins_(Irish_leader)), [Jack Lynch](https://en.wikipedia.org/wiki/Jack_Lynch), and [Sonia O'Sullivan](https://en.wikipedia.org/wiki/Jack_Lynch).
+
+Cork borders four other counties: [Kerry](https://en.wikipedia.org/wiki/County_Kerry) to the west, [Limerick](https://en.wikipedia.org/wiki/County_Limerick) to the north, [Tipperary](https://en.wikipedia.org/wiki/County_Tipperary) to the north-east and [Waterford](https://en.wikipedia.org/wiki/County_Waterford) to the east. The county contains a section of the [Golden Vale](https://en.wikipedia.org/wiki/Golden_Vale) pastureland that stretches from [Kanturk](https://en.wikipedia.org/wiki/Kanturk) in the north to [Allihies](https://en.wikipedia.org/wiki/Allihies) in the south. The south-west region, including [West Cork](https://en.wikipedia.org/wiki/West_Cork), is one of Ireland's main tourist destinations,[6](https://en.wikipedia.org/wiki/County_Cork#cite_note-6) known for its rugged coast and [megalithic monuments](https://en.wikipedia.org/wiki/List_of_megalithic_monuments_in_Cork) and as the starting point for the Wild Atlantic Way. The largest third-level institution is University College Cork, founded in 1845, has a total student population of around 22,000.[7](https://en.wikipedia.org/wiki/County_Cork#cite_note-7) Local industry and employers include technology company [Dell EMC](https://en.wikipedia.org/wiki/Dell_EMC), the European headquarters of [Apple](https://en.wikipedia.org/wiki/Apple_Inc.), and the farmer-owned dairy co-operative [Dairygold](https://en.wikipedia.org/wiki/Dairygold).
+
+The county is known as the "rebel county", a name given to it by [King Henry VII of England](https://en.wikipedia.org/wiki/Henry_VII_of_England) for its support, in a futile attempt at a rebellion in 1491, of [Perkin Warbeck](https://en.wikipedia.org/wiki/Perkin_Warbeck), who claimed to be [Richard of Shrewsbury, Duke of York](https://en.wikipedia.org/wiki/Richard_of_Shrewsbury,_Duke_of_York)
+
+
+
+
+```{r, echo=FALSE, warning=FALSE}
+library(leaflet)
+
+
+irelandLatLong <- data.frame(
+lat = c(51.9667, 51.6414, 53.0688, 52.5, 52.261, 52.4735, 52.6613, 52.1667, 51.55, 51.9143, 51.9045, 52.1375, 52.3433, 51.93443824302429, 51.931410139206776, 51.929213757023305, 51.929253451631304, 51.92852120088806, 51.92695802053753, 51.93398352084211, 51.928923650410496, 51.92902619540556, 51.9292396209919, 51.92931, 51.92898, 51.92924),
+lng = c(-8.5833, -10.0444, -6.3224, -8, -7.1119, -8.1614, -8.6301, -9.75, -9.2667, -8.1701, -8.9555, -8.6463, -8.7167, -8.561116637632692, -8.56845504906744, -8.570922681484232, -8.567714759445362, -8.567897149667731, -8.5718500999229, -8.566721058996444, -8.568537443302954, -8.56751283944104, -8.57062069197382, -8.57025,  -8.57174, -8.57148), text1 = c("West Cork", "Allihies", "Kanturk", "Golden Vale", "Waterford", "Tipperary", "Limerick", "Kerry", "Skibbereen", "Midleton", "Macroom", "Mallow", "Munster", "Blarney (An Bhlarna) Co. Cork Ireland", "Blarney Castle Gardens (Gairdíní Chaisleán na Blarnan)", "Blarney Castle & Gardens", "Witch's Yew Tree", "Rock Close (Dún na Carraige)", "Blarney Castle House (Teach Caisleán na Blarnan)", "Church Of The Immaculate Conception", "The Three Wise Men", "Wishing Steps (Céimeanna ar mian leo)", "Blarney Stone (Cloch na Blarnan)", "Guard Tower", "Poison Garden", "Badgers Cave"),
+   stringsAsFactors = FALSE)
+
+
+irelandLatLong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(~lng, ~lat,
+             clusterOptions = markerClusterOptions(zoomToBoundsOnClick = T),
+             popup = ~as.character(text1), label = ~as.character(text1))
+
+```
+
+
